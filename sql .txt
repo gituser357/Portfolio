@@ -1,11 +1,11 @@
 use shop;
 
 INSERT INTO category (id, name, discount, alias_name)
-VALUES (3,'Женская обувь', 10, NULL);
+	VALUES (3,'Женская обувь', 10, NULL);
 INSERT INTO category (id, name, discount, alias_name)
-VALUES (4,'Мужская обувь', 15, 'man''s shoes');
+	VALUES (4,'Мужская обувь', 15, 'man''s shoes');
 INSERT INTO category (name, discount)
-VALUES ('Шляпы', 0);
+	VALUES ('Шляпы', 0);
 
 
 SELECT * FROM category WHERE (discount > 5) AND (discount < 15);
@@ -40,8 +40,7 @@ INSERT INTO brand (name) VALUES ('ARMANI');
 
 DELETE FROM brand where id = 4;
 INSERT INTO category (id, name, discount, alias_name)
-VALUES (3,'Женская обувь', 10, NULL);
-
+	VALUES (3,'Женская обувь', 10, NULL);
 
 SELECT * FROM category 
 	INNER JOIN product ON category_id = category.id;
@@ -64,7 +63,6 @@ SELECT * FROM category
 	left JOIN product ON category_id = category.id;
 	-- WHERE product.id is null;
 
-
 SELECT * FROM category 
 	right JOIN product ON category_id = category.id
 	WHERE product.id is null;
@@ -78,12 +76,9 @@ SELECT product.* FROM `order`
 	right JOIN product ON order_products.product_id = product.id
 	-- WHERE `order`.id is null;
 
-
 SELECT * FROM product 
 	left JOIN order_products ON order_products.product_id = product.id
 	WHERE order_id is null;
-
-
 
 SELECT * FROM `order` 
 	left JOIN order_products ON order_products.order_id = `order`.id
@@ -92,8 +87,4 @@ union
 	SELECT * FROM `order` 
 	inner JOIN order_products ON order_products.order_id = `order`.id
 	right JOIN product ON order_products.product_id = product.id;
-
-
-
-
 
